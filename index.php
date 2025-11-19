@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil - Tuto+</title>
+    <link rel="stylesheet" href="./public/css/style-index.css">
+</head>
+<body>
+
+<header>
+    <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
+    <div class="logo">Tuto+</div>
+    <nav>
+        <a href="TODO">Accueil</a>
+        <a href="TODO">Connexion</a>
+        <a href="TODO" hidden>Profil</a>
+    </nav>
+</header>
+
+<!-- Description pour utilisateur non connecté -->
+<section class="description">
+    <h1>Bienvenue à Tuto+</h1>
+    <p>Vous recherchez de l'aide pour un cours de Techniques de l'informatique ? <br> Inscrivez-vous dès maintenant et réservez une séance avec l'un de nos tuteurs!</p>
+    <a href="#">S'inscrire</a>
+</section>
+
+
+<section class="features">
+    <div class="feature-box">
+        <h3>Une équipe de tuteurs qualifiés</h3>
+        <p>Apprenez aux côtés d'étudiants habiles dans le domaine.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>Plage horaire flexible</h3>
+        <p>Sélectionnez une date à travers toutes les disponibilités des tuteurs.</p>
+    </div>
+
+    <div class="feature-box">
+        <h3>Séances personnalisées</h3>
+        <p>Toute séance peut être personnalisée selon vos besoins, que ce soit pour un cours en Programmation Web et mobile ou Réseaux et sécurité.</p>
+    </div>
+</section>
+
+<section class="info">
+    <h2>À propos de Tuto+</h2>
+    <p>
+        Tuto+ est une équipe dédiée à aider les étudiants en Techniques de l'informatique du Collège Ahuntsic. Un service personnalisé
+        vous est offert peu importe la branche informatique choisie. L'équipe de tuteurs sont des étudiants tels que vous, toujours
+        prêts à vous aider!
+    </p>
+</section>
+
+<footer>
+    © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
+</footer>
+
+</body>
+</html>
