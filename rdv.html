@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prendre Rendez-vous - Tuto+</title>
+    <link rel="stylesheet" href="./public/css/style-rdv.css">
+    <link rel="stylesheet" href="./public/css/style-profile.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
+        <div class="logo">Tuto+</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="profil.html">Profil</a>
+            <a href="index.html">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main class="rdv-container">
+
+        <div class="rdv-header">
+            <h1>Prendre un Rendez-vous</h1>
+            <p>Suivez les étapes ci-dessous pour réserver votre séance de tutorat.</p>
+        </div>
+
+        <div class="rdv-grid">
+
+            <div class="rdv-content">
+
+                <div class="rdv-card step-card">
+                    <h3>Étape 1 : Choisir le Cours et le Tuteur</h3>
+                    
+                    <div class="filter-group">
+                        <label for="course-select">Cours concerné :</label>
+                        <select id="course-select" class="rdv-select">
+                            <option value="">-- Choisir un cours --</option>
+                            <option value="web1">Programmation Web 1</option>
+                            <option value="reseaux">Réseaux et sécurité</option>
+                            <option value="bd">Bases de données</option>
+                        </select>
+                    </div>
+
+                    <div class="filter-group">
+                        <label for="tutor-list">Sélectionnez votre tuteur :</label>
+                        <select id="tutor-list" class="rdv-select">
+                            <option value="">-- Choisir un tuteur --</option>
+                            <option value="emerick">Emerick Lanthier</option>
+                            <option value="jacob">Jacob Somphanthabansouk</option>
+                            <option value="madrid">Madrid Boutin-Guénette</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="rdv-card step-card">
+                    <h3>Étape 2 : Sélectionner une plage horaire</h3>
+                    <div class="calendar-nav">
+                        <button class="nav-arrow" disabled>&lt; Préc.</button>
+                        <p class="week-display">Semaine du 24 au 28 Novembre 2025</p>
+                        <button class="nav-arrow">Suiv. &gt;</button>
+                    </div>
+
+                    <div class="calendar-grid">
+                        <div class="day-header">Lun 24</div>
+                        <div class="day-header">Mar 25</div>
+                        <div class="day-header">Mer 26</div>
+                        <div class="day-header">Jeu 27</div>
+                        <div class="day-header">Ven 28</div>
+
+                        <div class="time-slot available" data-time="9:00" data-day="Mon">9:00</div>
+                        <div class="time-slot unavailable" data-time="9:00" data-day="Tue">9:00</div>
+                        <div class="time-slot available" data-time="9:00" data-day="Wed">9:00</div>
+                        <div class="time-slot unavailable" data-time="9:00" data-day="Thu">9:00</div>
+                        <div class="time-slot unavailable" data-time="9:00" data-day="Fri">9:00</div>
+                        
+                        <div class="time-slot available" data-time="10:00" data-day="Mon">10:00</div>
+                        <div class="time-slot available" data-time="10:00" data-day="Tue">10:00</div>
+                        <div class="time-slot available" data-time="10:00" data-day="Wed">10:00</div>
+                        <div class="time-slot unavailable" data-time="10:00" data-day="Thu">10:00</div>
+                        <div class="time-slot available" data-time="10:00" data-day="Fri">10:00</div>
+
+                        <div class="time-slot unavailable" data-time="11:00" data-day="Mon">11:00</div>
+                        <div class="time-slot available" data-time="11:00" data-day="Tue">11:00</div>
+                        <div class="time-slot available" data-time="11:00" data-day="Wed">11:00</div>
+                        <div class="time-slot available" data-time="11:00" data-day="Thu">11:00</div>
+                        <div class="time-slot available" data-time="11:00" data-day="Fri">11:00</div>
+                    </div>
+                    <p class="calendar-footer">Cliquez sur une case verte pour sélectionner l'heure.</p>
+                </div>
+
+                <div class="rdv-card step-card">
+                    <h3>Étape 3 : Précisez vos besoins pour la séance</h3>
+                    <form class="needs-form">
+                        <div class="form-group">
+                            <label for="topic">Sujet principal de la séance (ex: boucles, configuration réseau, requêtes SQL) :</label>
+                            <input type="text" id="topic" name="topic" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="details">Détails de ce que vous aimeriez aborder (soyez précis) :</label>
+                            <textarea id="details" name="details" rows="5" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="documents">Avez-vous des documents à partager (ex: devoir, code, erreur)?</label>
+                            <input type="file" id="documents" name="documents">
+                        </div>
+                        
+                        <div class="summary-box">
+                            <h4>Récapitulatif de la Réservation</h4>
+                            <p><strong>Cours:</strong> Programmation Web 1</p>
+                            <p><strong>Tuteur:</strong> Emerick Lanthier</p>
+                            <p><strong>Date et heure:</strong> Lundi 24 Novembre, 9h00</p>
+                        </div>
+                        
+                        <button type="submit" class="btn-action final-submit">Confirmer la Réservation</button>
+                    </form>
+                </div>
+
+            </div>
+            
+            <div class="rdv-sidebar sidebar-info">
+                <div class="profile-card">
+                    <h3>Instructions</h3>
+                    <p>Pour vous assurer d'avoir la meilleure séance possible, veuillez remplir les trois étapes.</p>
+                    <ul>
+                        <li>La séance dure **60 minutes**.</li>
+                        <li>Assurez-vous d'apporter tout matériel pertinent.</li>
+                        <li>Vous recevrez un courriel de confirmation.</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
+    </footer>
+
+</body>
+
+</html>
