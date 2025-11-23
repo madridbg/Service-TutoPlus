@@ -1,0 +1,120 @@
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-direction: column; 
+    min-width: 110px;
+}
+
+.btn-icon {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: background 0.2s;
+    color: white;
+}
+
+.btn-accept {
+    background-color: #00a000; 
+}
+
+.btn-accept:hover {
+    background-color: #008000;
+}
+
+.btn-reject {
+    background-color: #c71717; 
+}
+
+.btn-reject:hover {
+    background-color: #a01212;
+}
+
+
+.btn-text-cancel {
+    background: none;
+    border: 1px solid #ccc;
+    color: #666;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.btn-text-cancel:hover {
+    background-color: #f0f0f0;
+    color: #c71717;
+    border-color: #c71717;
+}
+
+
+.availability-form {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    border: 1px dashed #ccc;
+}
+
+.form-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-date, .input-time {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex-grow: 1;
+}
+
+.btn-add {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0 15px;
+    cursor: pointer;
+}
+
+.btn-add:hover {
+    background-color: #000;
+}
+
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.time-tag {
+    background-color: #e6fffa;
+    color: #00a000;
+    border: 1px solid #00a000;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.remove-tag {
+    cursor: pointer;
+    font-weight: bold;
+    color: #00a000;
+}
+
+.remove-tag:hover {
+    color: #c71717;
+}
+
+@media (min-width: 600px) {
+    .action-buttons {
+        flex-direction: row;
+    }
+}

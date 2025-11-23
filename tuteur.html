@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Tuteur - Tuto+</title>
+    <link rel="stylesheet" href="./public/css/style-profile.css">
+    <link rel="stylesheet" href="./public/css/style-tuteur.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
+        <div class="logo">Tuto+</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="tuteur.html" hidden>Mon Espace</a> <a href="index.html">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+
+        <div class="profile-header">
+            <h1>Tableau de bord Tuteur</h1>
+        </div>
+
+        <div class="profile-grid">
+
+            <div class="profile-card user-info">
+                <div class="avatar-circle">
+                    <span>MB</span>
+                </div>
+                <h2>Madrid B.G.</h2> <p class="role">Tuteur Certifié</p>
+                <hr>
+                <div class="info-list">
+                    <p><strong>Expertise :</strong> Web, Réseaux</p>
+                    <p><strong>Note moyenne :</strong> 4.9/5</p>
+                    <p><strong>Séances données :</strong> 12</p>
+                </div>
+                <a href="#" class="btn-action">Modifier mon profil</a>
+            </div>
+
+            <div class="profile-content-right">
+
+                <div class="profile-card">
+                    <h3>Demandes en attente (2)</h3>
+                    
+                    <div class="session-item request-item">
+                        <div class="session-details">
+                            <h4>Bases de données (SQL)</h4>
+                            <p>Étudiant : <strong>Étudiant Test</strong></p>
+                            <p><em>"Besoin d'aide avec les jointures LEFT JOIN..."</em></p>
+                            <p>Date souhaitée : 25 Nov • 10h00 - 11h00</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-accept" title="Accepter">✔ Accepter</button>
+                            <button class="btn-icon btn-reject" title="Rejeter">✖ Rejeter</button>
+                        </div>
+                    </div>
+
+                    <div class="session-item request-item">
+                        <div class="session-details">
+                            <h4>Réseaux et sécurité</h4>
+                            <p>Étudiant : <strong>Jean Tremblay</strong></p>
+                            <p>Date souhaitée : 26 Nov • 14h00 - 15h00</p>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-accept" title="Accepter">✔ Accepter</button>
+                            <button class="btn-icon btn-reject" title="Rejeter">✖ Rejeter</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Mes séances confirmées</h3>
+
+                    <div class="session-item">
+                        <div class="date-box">
+                            <span class="day">24</span>
+                            <span class="month">NOV</span>
+                        </div>
+                        <div class="session-details">
+                            <h4>Programmation Web 1</h4>
+                            <p>Avec : Étudiant Test</p>
+                            <p>Local : B2.400 • 09h00 - 10h00</p>
+                        </div>
+                        <button class="btn-text-cancel">Annuler</button>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Gérer mes disponibilités</h3>
+                    <form class="availability-form">
+                        <div class="form-row">
+                            <input type="date" class="input-date" required>
+                            <select class="input-time">
+                                <option>09:00</option>
+                                <option>10:00</option>
+                                <option>11:00</option>
+                                <option>14:00</option>
+                            </select>
+                            <button type="submit" class="btn-add">Ajouter +</button>
+                        </div>
+                    </form>
+                    
+                    <div class="tags-container">
+                        <span class="time-tag">28 Nov - 09h00 <span class="remove-tag">x</span></span>
+                        <span class="time-tag">28 Nov - 10h00 <span class="remove-tag">x</span></span>
+                        <span class="time-tag">29 Nov - 13h00 <span class="remove-tag">x</span></span>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Historique récent</h3>
+                    <div class="session-item">
+                        <div class="date-box" style="background-color: #ddd;">
+                            <span class="day">10</span>
+                            <span class="month">OCT</span>
+                        </div>
+                        <div class="session-details">
+                            <h4 style="color: #666;">Programmation Web 1</h4>
+                            <p>Terminé • Étudiant Test</p>
+                        </div>
+                        <span class="status confirmed" style="background-color: #eee; color: #555; border-color: #ccc;">Complété</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
+    </footer>
+
+</body>
+</html>
