@@ -14,15 +14,18 @@
         <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
         <div class="logo">Tuto+</div>
         <nav>
-            <a href="index.html">Accueil</a>
+            <a href="index.php">Accueil</a>
+            <?php if (isset($_GET['tutore'])) {
+                echo "<a href=\"tutore.html\">Espace Tutoré</a>";
+            } elseif (isset($_GET['tuteur'])) {
+                echo "<a href=\"tuteur.html\">Espace Tuteur</a>";
+            } elseif (isset($_GET['admin'])) {
+                echo "<a href=\"admin.html\">Espace Admin</a>";
+            } else {
+                echo "<a href=\"connexion.html\">S'inscrire</a>";
+            }
 
-            <a href="tutore.html">Espace Étudiant</a>
-
-            <a href="tuteur.html">Espace Tuteur</a>
-
-            <a href="admin.html">Admin</a>
-
-            <a href=" tutore.html" hidden>Profil</a>
+            ?>
         </nav>
     </header>
 
@@ -32,7 +35,6 @@
             et réservez une séance avec l'un de nos tuteurs!</p>
         <a href="connexion.html">S'inscrire</a>
     </section>
-
 
     <section class="features">
         <div class="feature-box">

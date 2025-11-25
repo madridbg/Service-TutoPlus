@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Tuto+</title>
+    <link rel="stylesheet" href="./public/css/style-profile.css">
+    <link rel="stylesheet" href="./public/css/style-rdv.css">
+    <link rel="stylesheet" href="./public/css/style-connexion.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
+        <div class="logo">Tuto+</div>
+        <nav>
+            <a href="index.php">Accueil</a>
+            <a href="connexion.html" style="color: black;">Connexion</a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+
+        <div class="profile-header">
+            <h1>Connexion</h1>
+            <p>Choisissez votre type de compte pour accéder à votre espace.</p>
+        </div>
+
+        <div class="login-wrapper">
+            <div class="profile-card login-card">
+
+                <div class="login-tabs">
+                    <button class="tab-btn active" onclick="openTab(event, 'student')"
+                        data-target="student">Tutoré</button>
+                    <button class="tab-btn" onclick="openTab(event, 'tutor')" data-target="tutor">Tuteur</button>
+                    <button class="tab-btn" onclick="openTab(event, 'admin')" data-target="admin">Admin</button>
+                </div>
+
+                <div class="login-content">
+
+                    <div id="student" class="form-section active">
+                        <span class="login-icon">🎓</span>
+                        <h3 style="text-align:center; border:none; margin-bottom:15px;">Espace Tutoré</h3>
+                        <form class="needs-form">
+                            <div class="champ">
+                                <label for="email-student">Numéro de DA</label>
+                                <input type="text" id="email-student" placeholder="1234567" required>
+                            </div>
+                            <div class="champ">
+                                <label for="pwd-student">Mot de passe</label>
+                                <input type="password" id="pwd-student" required>
+                            </div>
+                            <a href="tutore.html" class="btn-action">Se connecter</a>
+                        </form>
+                    </div>
+
+                    <div id="tutor" class="form-section">
+                        <span class="login-icon">👨‍🏫</span>
+                        <h3 style="text-align:center; border:none; margin-bottom:15px;">Espace Tuteur</h3>
+                        <form class="needs-form">
+                            <div class="champ">
+                                <label for="email-tutor">Courriel Ahuntsic</label>
+                                <input type="text" id="email-tutor" placeholder="prenom.nom@collegeahuntsic.qc.ca"
+                                    required>
+                            </div>
+                            <div class="champ">
+                                <label for="pwd-tutor">Mot de passe</label>
+                                <input type="password" id="pwd-tutor" required>
+                            </div>
+                            <a href="tuteur.html" class="btn-action">Se connecter</a>
+                        </form>
+                    </div>
+
+                    <div id="admin" class="form-section">
+                        <span class="login-icon">⚙️</span>
+                        <h3 style="text-align:center; border:none; margin-bottom:15px; color:#333;">Administration</h3>
+                        <form class="needs-form">
+                            <div class="champ">
+                                <label for="email-admin">Identifiant</label>
+                                <input type="text" id="email-admin" placeholder="admin" required>
+                            </div>
+                            <div class="champ">
+                                <label for="pwd-admin">Mot de passe</label>
+                                <input type="password" class="champ-mdp" required>
+                            </div>
+                            <a href="admin.html" class="btn-action btn-admin">Accéder</a>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
+    </footer>
+
+    <script>
+        // Code qui change la connexion selon le choix
+        function openTab(evt, tabName) {
+            var sections = document.getElementsByClassName("form-section");
+            for (var i = 0; i < sections.length; i++) {
+                sections[i].classList.remove("active");
+            }
+
+            var tablinks = document.getElementsByClassName("tab-btn");
+            for (var i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+
+            document.getElementById(tabName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
+    </script>
+
+</body>
+
+</html>
