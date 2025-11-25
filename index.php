@@ -22,7 +22,7 @@
             } elseif (isset($_GET['admin'])) {
                 echo "<a href=\"admin.html\">Espace Admin</a>";
             } else {
-                echo "<a href=\"connexion.html\">S'inscrire</a>";
+                echo "<a href=\"connexion.html\">Connexion</a>";
             }
 
             ?>
@@ -33,7 +33,7 @@
         <h1>Bienvenue à Tuto+</h1>
         <p>Vous recherchez de l'aide pour un cours de Techniques de l'informatique ? <br> Inscrivez-vous dès maintenant
             et réservez une séance avec l'un de nos tuteurs!</p>
-        <a href="connexion.html">S'inscrire</a>
+        <a href="inscription.php">Commencer</a>
     </section>
 
     <section class="features">
