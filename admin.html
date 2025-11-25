@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Espace Administrateur - Tuto+</title>
+    <link rel="stylesheet" href="./public/css/style-profile.css">
+    <link rel="stylesheet" href="./public/css/style-admin.css">
+</head>
+
+<body>
+
+    <header>
+        <img src="./public/assets/logo-ahuntsic.png" alt="Logo du collège Ahuntsic" class="logo-ahuntsic">
+        <div class="logo">Tuto+</div>
+        <nav>
+            <a href="index.html">Accueil</a>
+            <a href="admin.html" hidden>Administration</a>
+            <a href="index.html">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+
+        <div class="profile-header">
+            <h1>Tableau de Bord Administrateur</h1>
+        </div>
+
+        <div class="profile-grid">
+
+            <div class="profile-card user-info">
+                <div class="avatar-circle admin-avatar">
+                    <span>AD</span>
+                </div>
+                <h2>Super Admin</h2>
+                <p class="role">Gestionnaire du système</p>
+                <hr>
+                <div class="info-list">
+                    <p><strong>Dernière connexion :</strong> 25 Nov</p>
+                    <p><strong>Statut :</strong> Actif</p>
+                </div>
+                <a href="#" class="btn-action">Paramètres du site</a>
+            </div>
+
+            <div class="profile-content-right">
+
+                <div class="stats-row">
+                    <div class="stat-card">
+                        <span class="stat-number">42</span>
+                        <span class="stat-label">Séances actives</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15</span>
+                        <span class="stat-label">Tuteurs inscrits</span>
+                    </div>
+                    <div class="stat-card warning">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">En attente de validation</span>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Candidatures Tuteurs en attente</h3>
+
+                    <div class="session-item">
+                        <div class="session-details">
+                            <h4>Sarah Maude (Techniques info)</h4>
+                            <p><strong>Moyenne générale :</strong> 92%</p>
+                            <p><em>"Je souhaite aider en Algo et en Mathématiques."</em></p>
+                            <a href="#" class="link-doc">Voir le relevé de notes</a>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-accept">✔ Valider</button>
+                            <button class="btn-icon btn-reject">✖ Refuser</button>
+                        </div>
+                    </div>
+
+                    <div class="session-item">
+                        <div class="session-details">
+                            <h4>Kevin Tran (Réseautique)</h4>
+                            <p><strong>Moyenne générale :</strong> 88%</p>
+                            <p><em>"Expert en Cisco et Linux."</em></p>
+                            <a href="#" class="link-doc">Voir le relevé de notes</a>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn-icon btn-accept">✔ Valider</button>
+                            <button class="btn-icon btn-reject">✖ Refuser</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile-card">
+                    <h3>Gestion des Utilisateurs Récents</h3>
+                    <table class="user-table">
+                        <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Rôle</th>
+                                <th>Programme</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Étudiant Test</td>
+                                <td>Étudiant</td>
+                                <td>T.I.</td>
+                                <td><button class="btn-small btn-edit">Éditer</button></td>
+                            </tr>
+                            <tr>
+                                <td>Madrid B.G.</td>
+                                <td>Tuteur</td>
+                                <td>T.I.</td>
+                                <td><button class="btn-small btn-edit">Éditer</button></td>
+                            </tr>
+                            <tr>
+                                <td>Jean Tremblay</td>
+                                <td>Étudiant</td>
+                                <td>Graphisme</td>
+                                <td><button class="btn-small btn-warn">Suspendre</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="table-footer">
+                        <a href="#">Voir tous les utilisateurs &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
+    </footer>
+
+</body>
+
+</html>
