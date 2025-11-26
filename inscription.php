@@ -13,11 +13,7 @@ if (isset($_GET['action'])) {
         exit();
     } elseif ($action == 'register_tuteur') {
         $message_succes = "<strong>Candidature reçue !</strong><br>Votre profil est en cours d'analyse par l'administration.<br>Vous recevrez une réponse par courriel.";
-    } elseif ($action == 'register_admin') {
-
-        header("Location: admin.html");
-        exit();
-    }
+    } 
 }
 
 ?>
@@ -69,7 +65,6 @@ if (isset($_GET['action'])) {
                             data-target="tutore">Tutoré</button>
                         <button class="tab-btn" onclick="openTab(event, 'tuteur')" data-target="tuteur">Devenir
                             Tuteur</button>
-                        <button class="tab-btn" onclick="openTab(event, 'admin')" data-target="admin">Admin</button>
                     </div>
 
                     <div class="login-content">
@@ -134,28 +129,7 @@ if (isset($_GET['action'])) {
                             </form>
                         </div>
 
-                        <div id="admin" class="form-section">
-                            <span class="login-icon">⚙️</span>
-                            <h3 style="text-align:center; border:none; margin-bottom:15px; color:#333;">Création Admin</h3>
-
-                            <?php if ($message_erreur)
-                                echo "<div class='alert-box alert-error'>$message_erreur</div>"; ?>
-
-                            <form class="needs-form" action="inscription.php" method="GET">
-                                <input type="hidden" name="action" value="register_admin">
-
-                                <div class="champ">
-                                    <label>Identifiant</label>
-                                    <input type="text" name="identifiant" required>
-                                </div>
-                                <div class="champ">
-                                    <label>Mot de passe</label>
-                                    <input type="password" name="pwd" required>
-                                </div>
-
-                                <button type="submit" class="btn-action btn-admin">Créer Admin</button>
-                            </form>
-                        </div>
+ 
 
                     </div>
                     <div class="login-footer">
