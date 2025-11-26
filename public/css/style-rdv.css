@@ -362,3 +362,11 @@
     margin-bottom: 10px;
     color: #555;
 }
+.time-slot.selected {
+    background-color: #005a00 !important; 
+    color: white !important;
+    border: 2px solid #000 !important;
+    transform: scale(1.05); 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
