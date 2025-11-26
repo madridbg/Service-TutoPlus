@@ -134,73 +134,80 @@
     <footer>
         © 2025 Tuto+ — Collège Ahuntsic <br> Madrid Boutin-Guénette - Emerick Lanthier - Jacob Somphanthabansouk
     </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let dateChoisie = null; 
+    <div id="confirmation-modal" class="modal-overlay" style="display: none;">
+        <div class="modal-box">
+            <h3 style="color: #00a000; margin-top: 0;">✅ Réservation Confirmée !</h3>
+            <div id="modal-message" style="text-align: left; margin: 20px 0; line-height: 1.5; font-size: 16px;"></div>
+            <button id="btn-modal-ok" class="btn-action" style="width: 100%;">OK, retourner au profil</button>
+        </div>
+    </div>
 
-        const cases = document.querySelectorAll('.time-slot.available');
-        cases.forEach(uneCase => {
-            uneCase.addEventListener('click', function() {
-                cases.forEach(c => {
-                    c.style.backgroundColor = ''; 
-                    c.style.color = '';
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let dateChoisie = null;
+
+            const cases = document.querySelectorAll('.time-slot.available');
+            cases.forEach(uneCase => {
+                uneCase.addEventListener('click', function () {
+                    cases.forEach(c => {
+                        c.style.backgroundColor = '';
+                        c.style.color = '';
+                    });
+                    this.style.backgroundColor = '#00a000';
+                    this.style.color = 'white';
+
+                    const jours = { 'Mon': 'Lundi', 'Tue': 'Mardi', 'Wed': 'Mercredi', 'Thu': 'Jeudi', 'Fri': 'Vendredi' };
+                    const jourRaw = this.getAttribute('data-day');
+                    dateChoisie = (jours[jourRaw] || jourRaw) + " à " + this.getAttribute('data-time');
                 });
-                this.style.backgroundColor = '#00a000';
-                this.style.color = 'white';
-                
-                const jours = {'Mon': 'Lundi', 'Tue': 'Mardi', 'Wed': 'Mercredi', 'Thu': 'Jeudi', 'Fri': 'Vendredi'};
-                const jourRaw = this.getAttribute('data-day');
-                dateChoisie = (jours[jourRaw] || jourRaw) + " à " + this.getAttribute('data-time');
+            });
+
+            const formulaire = document.querySelector('.needs-form');
+
+            formulaire.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const selectCours = document.getElementById('course-select');
+                const selectTuteur = document.getElementById('tutor-list');
+                const sujet = document.getElementById('topic').value;
+
+                if (selectCours.value === "") {
+                    alert("⚠️ Erreur : Veuillez choisir un cours.");
+                    selectCours.focus();
+                    return;
+                }
+
+                if (selectTuteur.value === "") {
+                    alert("⚠️ Erreur : Veuillez choisir un tuteur.");
+                    selectTuteur.focus();
+                    return;
+                }
+
+                if (!dateChoisie) {
+                    alert("⚠️ Erreur : N'oubliez pas de cliquer sur une case verte dans le calendrier !");
+                    return;
+                }
+
+                const nomCours = selectCours.options[selectCours.selectedIndex].text;
+                const nomTuteur = selectTuteur.options[selectTuteur.selectedIndex].text;
+
+                const messageConfirmation =
+                    "✅ RÉSERVATION CONFIRMÉE !\n\n" +
+                    "Cours : " + nomCours + "\n" +
+                    "Tuteur : " + nomTuteur + "\n" +
+                    "Date : " + dateChoisie + "\n" +
+                    "Sujet : " + sujet + "\n\n" +
+                    "Appuyez sur OK pour revenir à votre profil.";
+
+                alert(messageConfirmation);
+
+                window.location.href = "tutore.html";
             });
         });
+    </script>
 
-        const formulaire = document.querySelector('.needs-form');
-        const modal = document.getElementById('confirmation-modal');
-        const modalMessage = document.getElementById('modal-message');
-        const btnOk = document.getElementById('btn-modal-ok');
-        
-        formulaire.addEventListener('submit', function(e) {
-            e.preventDefault(); 
 
-            const selectCours = document.getElementById('course-select');
-            const selectTuteur = document.getElementById('tutor-list');
-            
-            if (selectCours.value === "") {
-                alert("⚠️ Oups ! Vous avez oublié de choisir un cours.");
-                selectCours.focus(); 
-                return; 
-            }
 
-            if (selectTuteur.value === "") {
-                alert("⚠️ Oups ! Vous avez oublié de choisir un tuteur.");
-                selectTuteur.focus();
-                return;
-            }
-
-            if (!dateChoisie) {
-                alert("⚠️ Oups ! Veuillez sélectionner une plage horaire dans le calendrier.");
-                return;
-            }
-
-            const nomCours = selectCours.options[selectCours.selectedIndex].text;
-            const nomTuteur = selectTuteur.options[selectTuteur.selectedIndex].text;
-            const sujet = document.getElementById('topic').value;
-
-            modalMessage.innerHTML = `
-                <strong>Cours :</strong> ${nomCours}<br>
-                <strong>Tuteur :</strong> ${nomTuteur}<br>
-                <strong>Sujet :</strong> ${sujet}<br>
-                <strong>Date :</strong> ${dateChoisie}
-            `;
-
-            modal.style.display = "flex";
-        });
-
-        btnOk.addEventListener('click', function() {
-            window.location.href = "profil.html";
-        });
-    });
-</script>
 
 </body>
 
