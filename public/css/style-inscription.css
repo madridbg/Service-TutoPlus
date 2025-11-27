@@ -139,3 +139,23 @@
           text-decoration: none;
           font-weight: bold;
       }
+
+      @media (max-width: 600px) {
+          .login-content {
+              padding: 20px 15px;
+          }
+
+          .tab-btn {
+              padding: 10px 5px;
+              font-size: 14px;
+          }
+
+          .form-row-split {
+              flex-direction: column;
+              gap: 0;
+          }
+
+          .form-row-split .champ {
+              margin-bottom: 15px;
+          }
+      }

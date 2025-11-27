@@ -486,3 +486,50 @@
     background-color: #6c007a;
     border-color: #8b2694;
 }
+
+@media (max-width: 768px) {
+    .rdv-container {
+        padding: 10px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .rdv-grid {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+    }
+
+    .rdv-content {
+        min-width: auto;
+        width: 100%;
+    }
+
+    .rdv-sidebar {
+        width: 100%;
+    }
+
+    .rdv-card {
+        padding: 15px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .calendar-grid {
+        min-width: 500px;
+    }
+
+    .calendar-nav {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .rdv-select,
+    .needs-form input,
+    .needs-form textarea {
+        width: 100%;
+        max-width: 100%;
+    }
+}

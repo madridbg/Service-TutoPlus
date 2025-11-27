@@ -158,3 +158,29 @@
         flex-direction: row;
     }
 }
+
+@media (max-width: 768px) {
+
+    .stats-row {
+        flex-direction: column;
+    }
+
+    .stat-card {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .profile-card {
+        overflow-x: auto;
+    }
+
+    .user-table {
+        min-width: 600px;
+    }
+
+    .btn-small {
+        display: block;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
