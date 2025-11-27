@@ -277,3 +277,24 @@ footer {
         width: 100%;
     }
 }
+
+.session-item.past .date-box {
+    background-color: #e0e0e0;
+    color: #555;
+}
+
+.session-item.past h4 {
+    color: #555;
+}
+
+.status.completed {
+    background-color: #eee;
+    color: #555555;
+    border: 1px solid #ccc;
+}
+
+.status.cancelled {
+    background-color: #fff0f0;
+    color: #c71717;
+    border: 1px solid #fabebb;
+}
