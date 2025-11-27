@@ -71,25 +71,40 @@
                         <div class="day-header">Jeu 27</div>
                         <div class="day-header">Ven 28</div>
 
-                        <div class="time-slot available" data-time="9:00" data-day="Mon">9:00</div>
+                        <div class="time-slot available in-person" data-time="9:00" data-day="Mon">9:00</div>
                         <div class="time-slot unavailable" data-time="9:00" data-day="Tue">9:00</div>
-                        <div class="time-slot available" data-time="9:00" data-day="Wed">9:00</div>
+                        <div class="time-slot available in-person" data-time="9:00" data-day="Wed">9:00</div>
                         <div class="time-slot unavailable" data-time="9:00" data-day="Thu">9:00</div>
                         <div class="time-slot unavailable" data-time="9:00" data-day="Fri">9:00</div>
 
-                        <div class="time-slot available" data-time="10:00" data-day="Mon">10:00</div>
-                        <div class="time-slot available" data-time="10:00" data-day="Tue">10:00</div>
-                        <div class="time-slot available" data-time="10:00" data-day="Wed">10:00</div>
+                        <div class="time-slot available hybrid" data-time="10:00" data-day="Mon">10:00</div>
+                        <div class="time-slot available hybrid" data-time="10:00" data-day="Tue">10:00</div>
+                        <div class="time-slot available hybrid" data-time="10:00" data-day="Wed">10:00</div>
                         <div class="time-slot unavailable" data-time="10:00" data-day="Thu">10:00</div>
-                        <div class="time-slot available" data-time="10:00" data-day="Fri">10:00</div>
+                        <div class="time-slot available virtual" data-time="10:00" data-day="Fri">10:00</div>
 
                         <div class="time-slot unavailable" data-time="11:00" data-day="Mon">11:00</div>
-                        <div class="time-slot available" data-time="11:00" data-day="Tue">11:00</div>
-                        <div class="time-slot available" data-time="11:00" data-day="Wed">11:00</div>
-                        <div class="time-slot available" data-time="11:00" data-day="Thu">11:00</div>
-                        <div class="time-slot available" data-time="11:00" data-day="Fri">11:00</div>
+                        <div class="time-slot available in-person" data-time="11:00" data-day="Tue">11:00</div>
+                        <div class="time-slot available hybrid" data-time="11:00" data-day="Wed">11:00</div>
+                        <div class="time-slot available virtual" data-time="11:00" data-day="Thu">11:00</div>
+                        <div class="time-slot available virtual" data-time="11:00" data-day="Fri">11:00</div>
                     </div>
                     <p class="calendar-footer">Cliquez sur une case verte pour sélectionner l'heure.</p>
+
+                    <div class="legend-group">
+                        <p>Type de disponibilité :</p>
+                        <div class="legend-container">
+                            <div class="legend-item">
+                                <span class="legend-box virtual"></span> Virtuel (Zoom/Teams)
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-box person"></span> En Présentiel
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-box hybrid"></span> Hybride (Au choix)
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="rdv-card step-card">
@@ -153,7 +168,8 @@
                         c.style.backgroundColor = '';
                         c.style.color = '';
                     });
-                    this.style.backgroundColor = '#00a000';
+                    this.style.backgroundColor = '#bd0000c4'
+
                     this.style.color = 'white';
 
                     const jours = { 'Mon': 'Lundi', 'Tue': 'Mardi', 'Wed': 'Mercredi', 'Thu': 'Jeudi', 'Fri': 'Vendredi' };
@@ -161,6 +177,7 @@
                     dateChoisie = (jours[jourRaw] || jourRaw) + " à " + this.getAttribute('data-time');
                 });
             });
+
 
             const formulaire = document.querySelector('.needs-form');
 
