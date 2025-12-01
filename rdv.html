@@ -47,11 +47,8 @@
 
                     <div class="filter-group">
                         <label for="tutor-list">Sélectionnez votre tuteur :</label>
-                        <select id="tutor-list" class="rdv-select">
-                            <option value="">-- Choisir un tuteur --</option>
-                            <option value="emerick">Emerick Lanthier</option>
-                            <option value="jacob">Jacob Somphanthabansouk</option>
-                            <option value="madrid">Madrid Boutin-Guénette</option>
+                        <select id="tutor-list" class="rdv-select" required>
+                            <option value="">-- Veuillez d'abord choisir un cours --</option>
                         </select>
                     </div>
                 </div>
@@ -77,11 +74,23 @@
                         <div class="time-slot unavailable" data-time="9:00" data-day="Thu">9:00</div>
                         <div class="time-slot unavailable" data-time="9:00" data-day="Fri">9:00</div>
 
+                        <div class="time-slot available virtual" data-time="9:30" data-day="Mon">9:30</div>
+                        <div class="time-slot available in-person" data-time="9:30" data-day="Tue">9:30</div>
+                        <div class="time-slot unavailable" data-time="9:30" data-day="Wed">9:30</div>
+                        <div class="time-slot available hybrid" data-time="9:30" data-day="Thu">9:30</div>
+                        <div class="time-slot available virtual" data-time="9:30" data-day="Fri">9:30</div>
+
                         <div class="time-slot available hybrid" data-time="10:00" data-day="Mon">10:00</div>
                         <div class="time-slot available hybrid" data-time="10:00" data-day="Tue">10:00</div>
                         <div class="time-slot available hybrid" data-time="10:00" data-day="Wed">10:00</div>
                         <div class="time-slot unavailable" data-time="10:00" data-day="Thu">10:00</div>
                         <div class="time-slot available virtual" data-time="10:00" data-day="Fri">10:00</div>
+
+                        <div class="time-slot unavailable" data-time="10:30" data-day="Mon">10:30</div>
+                        <div class="time-slot available virtual" data-time="10:30" data-day="Tue">10:30</div>
+                        <div class="time-slot available in-person" data-time="10:30" data-day="Wed">10:30</div>
+                        <div class="time-slot available hybrid" data-time="10:30" data-day="Thu">10:30</div>
+                        <div class="time-slot unavailable" data-time="10:30" data-day="Fri">10:30</div>
 
                         <div class="time-slot unavailable" data-time="11:00" data-day="Mon">11:00</div>
                         <div class="time-slot available in-person" data-time="11:00" data-day="Tue">11:00</div>
@@ -110,18 +119,29 @@
                 <div class="rdv-card step-card">
                     <h3>Étape 3 : Précisez vos besoins pour la séance</h3>
                     <form class="needs-form">
+
                         <div class="form-group">
-                            <label for="topic">Sujet principal de la séance (ex: boucles, configuration réseau, requêtes
-                                SQL) :</label>
+                            <label for="duration">Durée souhaitée :</label>
+                            <select id="duration" class="rdv-select" required>
+                                <option value="">-- Choisir la durée --</option>
+                                <option value="30 minutes">30 minutes (Minimum)</option>
+                                <option value="45 minutes">45 minutes</option>
+                                <option value="60 minutes">1 heure</option>
+                                <option value="90 minutes">1 heure 30</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="topic">Sujet principal de la séance :</label>
                             <input type="text" id="topic" name="topic" required>
                         </div>
+
                         <div class="form-group">
-                            <label for="details">Détails de ce que vous aimeriez aborder (soyez précis) :</label>
+                            <label for="details">Détails de ce que vous aimeriez aborder :</label>
                             <textarea id="details" name="details" rows="5" required></textarea>
                         </div>
+
                         <div class="form-group">
-                            <label for="documents">Avez-vous des documents à partager (ex: devoir, code,
-                                erreur)?</label>
+                            <label for="documents">Documents à partager :</label>
                             <input type="file" id="documents" name="documents">
                         </div>
 
@@ -157,71 +177,114 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            let dateChoisie = null;
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        
+        const specialites = {
+            'web1': [
+                { value: 'emerick', text: 'Emerick Lanthier (Expert Web)' }
+            ],
+            'reseaux': [
+                { value: 'jacob', text: 'Jacob Somphanthabansouk (Expert Réseaux)' }
+            ],
+            'bd': [
+                { value: 'madrid', text: 'Madrid Boutin-Guénette (Expert SQL)' }
+            ]
+        };
 
-            const cases = document.querySelectorAll('.time-slot.available');
-            cases.forEach(uneCase => {
-                uneCase.addEventListener('click', function () {
-                    cases.forEach(c => {
-                        c.style.backgroundColor = '';
-                        c.style.color = '';
-                    });
-                    this.style.backgroundColor = '#bd0000c4'
+        const selectCours = document.getElementById('course-select');
+        const selectTuteur = document.getElementById('tutor-list');
 
-                    this.style.color = 'white';
+        selectCours.addEventListener('change', function() {
+            const choixCours = this.value;
+            
+            selectTuteur.innerHTML = '<option value="">-- Choisir un tuteur --</option>';
 
-                    const jours = { 'Mon': 'Lundi', 'Tue': 'Mardi', 'Wed': 'Mercredi', 'Thu': 'Jeudi', 'Fri': 'Vendredi' };
-                    const jourRaw = this.getAttribute('data-day');
-                    dateChoisie = (jours[jourRaw] || jourRaw) + " à " + this.getAttribute('data-time');
+            if (choixCours && specialites[choixCours]) {
+                const tuteursDispo = specialites[choixCours];
+                
+                tuteursDispo.forEach(tuteur => {
+                    const option = document.createElement('option');
+                    option.value = tuteur.value;
+                    option.textContent = tuteur.text;
+                    selectTuteur.appendChild(option);
                 });
-            });
+            } else {
+                selectTuteur.innerHTML = '<option value="">-- Veuillez d\'abord choisir un cours --</option>';
+            }
+        });
 
 
-            const formulaire = document.querySelector('.needs-form');
+        let dateChoisie = null;
+        const cases = document.querySelectorAll('.time-slot.available');
+        
+        cases.forEach(uneCase => {
+            uneCase.addEventListener('click', function () {
+                cases.forEach(c => {
+                    c.style.backgroundColor = '';
+                    c.style.color = '';
+                });
 
-            formulaire.addEventListener('submit', function (e) {
-                e.preventDefault();
+                this.style.backgroundColor = '#bd0000c4';
+                this.style.color = 'white';
 
-                const selectCours = document.getElementById('course-select');
-                const selectTuteur = document.getElementById('tutor-list');
-                const sujet = document.getElementById('topic').value;
+                const jours = { 'Mon': 'Lundi', 'Tue': 'Mardi', 'Wed': 'Mercredi', 'Thu': 'Jeudi', 'Fri': 'Vendredi' };
+                const jourRaw = this.getAttribute('data-day');
 
-                if (selectCours.value === "") {
-                    alert("⚠️ Erreur : Veuillez choisir un cours.");
-                    selectCours.focus();
-                    return;
-                }
-
-                if (selectTuteur.value === "") {
-                    alert("⚠️ Erreur : Veuillez choisir un tuteur.");
-                    selectTuteur.focus();
-                    return;
-                }
-
-                if (!dateChoisie) {
-                    alert("⚠️ Erreur : N'oubliez pas de cliquer sur une case verte dans le calendrier !");
-                    return;
-                }
-
-                const nomCours = selectCours.options[selectCours.selectedIndex].text;
-                const nomTuteur = selectTuteur.options[selectTuteur.selectedIndex].text;
-
-                const messageConfirmation =
-                    "✅ RÉSERVATION CONFIRMÉE !\n\n" +
-                    "Cours : " + nomCours + "\n" +
-                    "Tuteur : " + nomTuteur + "\n" +
-                    "Date : " + dateChoisie + "\n" +
-                    "Sujet : " + sujet + "\n\n" +
-                    "Appuyez sur OK pour revenir à votre profil.";
-
-                alert(messageConfirmation);
-
-                window.location.href = "tutore.html";
+                dateChoisie = (jours[jourRaw] || jourRaw) + " à " + this.getAttribute('data-time');
             });
         });
-    </script>
+
+        const formulaire = document.querySelector('.needs-form');
+
+        formulaire.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const selectDuree = document.getElementById('duration'); 
+            const sujet = document.getElementById('topic').value;
+
+            if (selectCours.value === "") {
+                alert("⚠️ Erreur : Veuillez choisir un cours.");
+                selectCours.focus();
+                return;
+            }
+
+            if (selectTuteur.value === "") {
+                alert("⚠️ Erreur : Veuillez choisir un tuteur.");
+                selectTuteur.focus();
+                return;
+            }
+
+            if (!dateChoisie) {
+                alert("⚠️ Erreur : Veuillez sélectionner une heure de départ dans le calendrier.");
+                return;
+            }
+
+            if (selectDuree.value === "") {
+                alert("⚠️ Erreur : Veuillez choisir une durée pour la séance.");
+                selectDuree.focus();
+                return;
+            }
+
+            const nomCours = selectCours.options[selectCours.selectedIndex].text;
+            const nomTuteur = selectTuteur.options[selectTuteur.selectedIndex].text;
+            const dureeTexte = selectDuree.value; 
+
+            const messageConfirmation =
+                "✅ RÉSERVATION CONFIRMÉE !\n\n" +
+                "Cours : " + nomCours + "\n" +
+                "Tuteur : " + nomTuteur + "\n" +
+                "Début : " + dateChoisie + "\n" +
+                "Durée : " + dureeTexte + "\n" +
+                "Sujet : " + sujet + "\n\n" +
+                "Appuyez sur OK pour revenir à votre profil.";
+
+            alert(messageConfirmation);
+
+            window.location.href = "tutore.html";
+        });
+    });
+</script>
 
 
 

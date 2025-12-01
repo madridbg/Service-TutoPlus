@@ -24,7 +24,6 @@
             } else {
                 echo "<a href=\"connexion.html\">Connexion</a>";
             }
-
             ?>
         </nav>
     </header>
@@ -49,8 +48,34 @@
 
         <div class="feature-box">
             <h3>Séances personnalisées</h3>
-            <p>Toute séance peut être personnalisée selon vos besoins, que ce soit pour un cours en Programmation Web et
-                mobile ou Réseaux et sécurité.</p>
+            <p>Toute séance peut être personnalisée selon vos besoins.</p>
+        </div>
+    </section>
+
+    <section class="offered-courses">
+        <div class="section-title">
+            <h2>Cours Offerts</h2>
+            <p>Nos tuteurs sont spécialisés dans les axes principaux du programme.</p>
+        </div>
+
+        <div class="courses-grid">
+            <div class="course-card">
+                <div class="icon">🌐</div>
+                <h3>Programmation Web 1</h3>
+                <p>Apprenez les bases du développement web avec HTML, CSS et JavaScript pour créer des interfaces modernes et réactives.</p>
+            </div>
+
+            <div class="course-card">
+                <div class="icon">🔒</div>
+                <h3>Réseaux et sécurité</h3>
+                <p>Comprenez le fonctionnement des réseaux, la configuration des routeurs (Cisco) et les principes fondamentaux de la cybersécurité.</p>
+            </div>
+
+            <div class="course-card">
+                <div class="icon">🗄️</div>
+                <h3>Bases de données</h3>
+                <p>Maîtrisez le langage SQL, la modélisation de données et la gestion de l'information pour structurer efficacement vos projets.</p>
+            </div>
         </div>
     </section>
 
@@ -70,5 +95,3 @@
     </footer>
 
 </body>
-
-</html>
